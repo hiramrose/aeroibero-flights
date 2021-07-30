@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" th:href="@{/favicon.ico}">
+
+    <title>AeroIbero</title>
+
+    <!-- Bootstrap core CSS -->
+    <link  th:href="@{/dist/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/dist/css/cover.css}" rel="stylesheet">
+  </head>
+
+  <body class="text-left">
+
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand">AeroIBERO</h3>
+          <nav class="nav nav-masthead justify-content-center">
+            <!--a class="nav-link active" href="#">Vuelos</a-->
+            <!--a class="nav-link" href="#">Login</a-->
+            <!--a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuario</a-->
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">Reservas</a>
+              <a class="dropdown-item" href="#">Mi información</a>
+              <a class="dropdown-item" href="#">Cerrar sesión</a>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <main role="main" class="inner cover" style="border-radius: 10px; padding-top: 20px; padding-bottom: 20px; background-color: #dc143c">
+        <h1 class="cover-heading">Bienvenido a AeroIBERO.</h1>
+        <p class="lead">Comienza tu viaje ahora.</p>
+
+        <section id="login">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 mx-auto">
+                <div class="card text-dark" >
+                  <div class="card-header">
+                    <h4>Login</h4>
+                  </div>
+                  <div class="card-body">
+                    <form method="POST" th:action="@{/login}">
+                      <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" name="username" id="username"  placeholder="Ingresa tu e-mail"/>
+                      </div>
+                      <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" id="password" placeholder="Ingresa tu contraseña"/>
+                      </div>
+                      <input type="submit" value="Login" class="btn btn-primary btn-block"/>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <p class="lead">
+          <a th:href="@{/registrar}">¿No tienes cuenta? Registrate</a>
+        </p>
+      </main>
+        
+     
+
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p>Dev App 2 <a href="https://getbootstrap.com/">TSU Software</a>, by Equipo 1 .</p>
+        </div>
+      </footer>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!--<script th:src="@{//code.jquery.com/jquery-3.2.1.slim.min.js}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+    <!--<script>window.jQuery || document.write('<script th:src="@{dist/js/jquery-slim.min.js"><\/script>')</script>-->
+    <script th:src="@{dist/js/popper.min.js}"></script>
+    <script th:src="@{dist/js/bootstrap.min.js}"></script>
+  </body>
+</html>

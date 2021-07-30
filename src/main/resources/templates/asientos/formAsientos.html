@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" th:href="@{/favicon.ico}">
+
+    <title>AeroIbero</title>
+
+    <!-- Bootstrap core CSS -->
+    <link  th:href="@{/dist/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/dist/css/cover.css}" rel="stylesheet">
+  </head>
+
+  <body class="text-left">
+
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand">AeroIBERO</h3>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link active" href="#">Vuelos</a>
+            <a class="nav-link" href="#">Login</a>
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuario</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">Reservas</a>
+              <a class="dropdown-item" href="#">Mi información</a>
+              <a class="dropdown-item" href="#">Cerrar sesión</a>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <main role="main" class="inner cover" style="border-radius: 10px; padding-top: 20px; padding-bottom: 20px; background-color: #dc143c">
+        <h1 class="cover-heading">Bienvenido a AeroIBERO.</h1>
+        <p class="lead">Comienza tu viaje ahora.</p>
+
+        <div class="bs-component">
+        <form>
+          <fieldset>
+            <div class="form-group row">
+            <label class="col-2 col-form-label">Tipo</label>
+              <div class="custom-control custom-radio">
+                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked="">
+                <label class="custom-control-label" for="customRadio1">Sencillo</label>
+              </div>
+              <div class="custom-control custom-radio" style="margin-left: 20px">
+                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" disabled>
+                <label class="custom-control-label" for="customRadio2" style="color:#ababab;">Redondo (Proximamente)</label>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-2 col-form-label">Origen</label>
+              <div class="col-10">
+              <select class="custom-select">
+                <option selected="">Selecciona tu ciudad de origen</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+                </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-2 col-form-label">Destino</label>
+              <div class="col-10">
+              <select class="custom-select">
+                <option selected="">Selecciona la ciudad destino</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="example-date-input" class="col-2 col-form-label">Fecha de ida</label>
+                <div class="col-10">
+                    <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect2">Número de personas</label>
+                <select multiple class="form-control" id="exampleFormControlSelect2">
+                    <option selected="">1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+          </fieldset>
+            </form>      
+      </div>
+          
+        <p class="lead">
+          <a href="#" class="btn btn-lg btn-secondary">Buscar</a>
+        </p>
+      </main>
+        
+     
+
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p>Dev App 2 <a href="https://getbootstrap.com/">TSU Software</a>, by Equipo 1 .</p>
+        </div>
+      </footer>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!--<script th:src="@{//code.jquery.com/jquery-3.2.1.slim.min.js}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+    <!--<script>window.jQuery || document.write('<script th:src="@{dist/js/jquery-slim.min.js"><\/script>')</script>-->
+    <script th:src="@{dist/js/popper.min.js}"></script>
+    <script th:src="@{dist/js/bootstrap.min.js}"></script>
+  </body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" th:href="@{/favicon.ico}">
+
+    <title>AeroIbero</title>
+
+    <!-- Bootstrap core CSS -->
+    <link  th:href="@{/dist/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/dist/css/cover.css}" rel="stylesheet">
+
+    <script src="http://code.jquery.com/jquery-1.7.1.js"></script>
+</head>
+
+<body class="text-left">
+
+<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+        <div class="inner">
+            <h3 class="masthead-brand">AeroIBERO</h3>
+            <nav class="nav nav-masthead justify-content-center">
+                <a sec:authorize="isAuthenticated()" th:href="@{/logout}" class="nav-link active">Cerrar Sesión</a>
+                <!--a class="nav-link" href="#">Login</a>
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuario</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="#">Reservas</a>
+                    <a class="dropdown-item" href="#">Mi información</a>
+                    <a class="dropdown-item" href="#">Cerrar sesión</a>
+                </div-->
+            </nav>
+        </div>
+    </header>
+
+    <main role="main" class="inner cover" style="border-radius: 10px; padding-top: 20px; padding-bottom: 20px; background-color: #dc143c">
+        <h1 class="cover-heading">Bienvenido a AeroIBERO.</h1>
+        <p class="lead">Comienza tu viaje ahora.</p>
+
+        <div class="bs-component">
+            <form method="get" action="/vuelos/" id="form">
+                <fieldset>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Tipo</label>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio1" name="sencillo" class="custom-control-input" checked="">
+                            <label class="custom-control-label" for="customRadio1">Sencillo</label>
+                        </div>
+                        <div class="custom-control custom-radio" style="margin-left: 20px">
+                            <input type="radio" id="customRadio2" name="redondo" class="custom-control-input" disabled>
+                            <label class="custom-control-label" for="customRadio2" style="color:#ababab;">Redondo (Proximamente)</label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Origen:</label>
+                        <div class="col-10">
+                            <select name="origen" class="custom-select" id="select-origen">
+                                <option selected="">Selecciona una ciudad</option>
+                                <option value="La Comarca">La Comarca - Aeropueto Bilbo Bólson</option>
+                                <option value="Rivendel">Rivendel - Aeropuerto Altos Elfos</option>
+                                <option value="Rohan">Rohan - Aeropuerto Caballo Verde</option>
+                                <option value="Reino del Bosque">Reino del Bosque - Aeropuerto Elfos Silvanos</option>
+                                <option value="Erebor">Erebor - Aeropuerto Durin</option>
+                                <option value="Gondor">Gondor - Aeropuerto Isildur</option>
+                                <option value="Moria">Moria - Aeropuerto Khazad Dum</option>
+                                <option value="Isengard">Isengard - Aeropuerto Mango Blanco</option>
+                                <option value="Mordor">Mordor - Aeropuerto Ojo de Sauron</option>
+                                <option value="Narnia">Narnia - Aeropuerto León Real</option>
+                                <option value="Telmar">Telmar - Aeropuerto Principe Caspian</option>
+                                <option value="Charn">Charn - Aeropuerto Bruja Blanca</option>
+                                <option value="Ciudad Esmeralda">Ciudad Esmeralda - Aeropuerto Mago de Oz</option>
+                                <option value="Winkie">Winkie - Aeropuerto Bruja del Oeste</option>
+                                <option value="Munchkin">Munchkin - Aeropueto Dorita</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Destino:</label>
+                        <div class="col-10">
+                            <select name="destino" class="custom-select" id="select-destino">
+                                <option selected="">Selecciona una ciudad</option>
+                                <option value="La Comarca">La Comarca - Aeropueto Bilbo Bólson</option>
+                                <option value="Rivendel">Rivendel - Aeropuerto Altos Elfos</option>
+                                <option value="Rohan">Rohan - Aeropuerto Caballo Verde</option>
+                                <option value="Reino del Bosque">Reino del Bosque - Aeropuerto Elfos Silvanos</option>
+                                <option value="Erebor">Erebor - Aeropuerto Durin</option>
+                                <option value="Gondor">Gondor - Aeropuerto Isildur</option>
+                                <option value="Moria">Moria - Aeropuerto Khazad Dum</option>
+                                <option value="Isengard">Isengard - Aeropuerto Mango Blanco</option>
+                                <option value="Mordor">Mordor - Aeropuerto Ojo de Sauron</option>
+                                <option value="Narnia">Narnia - Aeropuerto León Real</option>
+                                <option value="Telmar">Telmar - Aeropuerto Principe Caspian</option>
+                                <option value="Charn">Charn - Aeropuerto Bruja Blanca</option>
+                                <option value="Ciudad Esmeralda">Ciudad Esmeralda - Aeropuerto Mago de Oz</option>
+                                <option value="Winkie">Winkie - Aeropuerto Bruja del Oeste</option>
+                                <option value="Munchkin">Munchkin - Aeropueto Dorita</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha de ida:</label>
+                        <div class="col-10">
+                            <input class="form-control" type="date" name="fecha"  id="example-date-input">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-time-input" class="col-2 col-form-label">Hora:</label>
+                        <div class="col-10">
+                            <input class="form-control" type="time" name="hora"  id="example-time-input">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect2">Número de personas:</label>
+                        <select name="cantidad" multiple class="form-control" id="exampleFormControlSelect2">
+                            <option selected="">1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </div>
+                </fieldset>
+                <p class="lead">
+                    <input type="submit" class="btn btn-lg btn-secondary" value="Buscar" />
+                </p>
+            </form>
+        </div>
+
+    </main>
+
+
+
+    <footer class="mastfoot mt-auto">
+        <div class="inner">
+            <p>Dev App 2 <a href="https://getbootstrap.com/">TSU Software</a>, by Equipo 1 .</p>
+        </div>
+    </footer>
+</div>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<!--<script th:src="@{//code.jquery.com/jquery-3.2.1.slim.min.js}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+<!--<script>window.jQuery || document.write('<script th:src="@{dist/js/jquery-slim.min.js"><\/script>')</script>-->
+<script th:src="@{dist/js/popper.min.js}"></script>
+<script th:src="@{dist/js/bootstrap.min.js}"></script>
+
+<script>
+    $('#form').submit(function() {
+        var id1 = $('#select-origen' ).val();
+        var id2 = $('#select-destino').val();
+        if (id1 == id2) {
+            alert('Debes elegir otra ciudad diferente del origen en destino');
+            return false;
+        } else {
+            return true;
+        } });
+</script>
+</body>
+</html>

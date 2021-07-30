@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" th:href="@{/favicon.ico}">
+
+  <title>AeroIbero</title>
+
+  <!-- Bootstrap core CSS -->
+  <link  th:href="@{/dist/css/bootstrap.min.css}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link th:href="@{/dist/css/cover.css}" rel="stylesheet">
+</head>
+
+<body class="text-left">
+
+<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+  <header class="masthead mb-auto">
+    <div class="inner">
+      <h3 class="masthead-brand">AeroIBERO</h3>
+      <nav class="nav nav-masthead justify-content-center">
+        <a class="nav-link active" href="#">Vuelos</a>
+        <a class="nav-link" href="#">Login</a>
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuario</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="#">Reservas</a>
+          <a class="dropdown-item" href="#">Mi información</a>
+          <a class="dropdown-item" href="#">Cerrar sesión</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main role="main" class="inner cover" style="border-radius: 10px; padding-top: 10px; padding-bottom: 10px; background-color: crimson;" >
+
+    <div class="bs-component">
+      <!---form>
+        <fieldset>
+          <div class="form-group row">
+            <label class="col-2 col-form-label">Nombre: </label>
+            <div class="col-10">
+              <input class="form-control" type="text" placeholder="Escribe tu nombre">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-2 col-form-label">Apellido Paterno:</label>
+            <div class="col-10">
+              <input class="form-control" type="text" placeholder="Escribe tu apellido">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-2 col-form-label">Apellido Materno:</label>
+            <div class="col-10">
+              <input class="form-control" type="text" placeholder="Escribe tu apellido">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-date-input" class="col-2 col-form-label">Fecha de nacimiento</label>
+            <div class="col-10">
+              <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-2 col-form-label">Nacionalidad</label>
+            <div class="col-10">
+              <select class="custom-select">
+                <option selected="">Selecciona una ciudad</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-2 col-form-label">Raza</label>
+            <div class="col-10">
+              <select class="custom-select">
+                <option selected="">Selecciona una ciudad</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+      </form-->
+      <form th:action="@{/guardarRegistro}" method="post" th:object="${usuario}" class="was-validated">
+        <div id="details">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <div class="card text-dark">
+                  <div class="card-header">
+                    <h4>Crear Cuenta</h4>
+                  </div>
+                  <div class="card-body">
+                    <div class="form-group" >
+                      <label for="nombre"> Nombre: </label>
+                      <input  placeholder="Escribe tu nombre" type="text" class="form-control" name="nombre" th:field="*{nombre}" required="true"/>
+                    </div>
+                    <div class="form-group">
+                      <label for="paterno"> Apellido Paterno: </label>
+                      <input placeholder="Escribe tu primer apellido" type="text" class="form-control" name="a_paterno" th:field="*{a_paterno}" required="true" />
+                    </div>
+                    <div class="form-group">
+                      <label for="materno"> Apellido Materno: </label>
+                      <input placeholder="Escribe tu segundo apellido" type="text" class="form-control" name="a_materno" th:field="*{a_materno}" required="true" />
+                    </div>
+                    <div class="form-group">
+                      <label for="fecha_nacimiento"> Fecha de Nacimiento: </label>
+                      <input placeholder="Escribe tu fecha de cumpleaños" type="date" class="form-control" name="fecha_nacimiento" th:field="*{fecha_nacimiento}" required="true" />
+                    </div>
+                    <div class="form-group">
+                      <label for="username"> E-mail: </label>
+                      <input placeholder="Escribe tu correo electrónico" type="email" class="form-control" name="email" th:field="*{username}" required="true" />
+                    </div>
+                    <div class="form-group">
+                      <label for="password"> Contraseña: </label>
+                      <input placeholder="Escribe la contraseña que usarás" type="password" class="form-control" name="contrasenia" th:field="*{password}" required="true" />
+                    </div>
+                    <div class="form-group">
+                      <label for="telefono"> Tel: </label>
+                      <input placeholder="Digita un teléfono para contactarte " type="text" class="form-control" name="telefono" th:field="*{telefono}" required="true" />
+                    </div>
+                    <div class="form-group">
+                      <label for="raza">Raza: </label>
+                      <select class="form-control" id="raza"  name="raza">
+                        <option value="">Ninguno</option>
+                        <option value=1>Humano</option>
+                        <option value=2>Elfo</option>
+                        <option value=3>Enano</option>
+                        <option value=4>Orco</option>
+                        <option value=5>Duende</option>
+                        <option value=6>Mago</option>
+                        <option value=7>Bruja</option>
+                        <option value=8>Centauro</option>
+                        <option value=9>Fauno</option>
+                        <option value=10>Mono Alado</option>
+                      </select >
+                    </div>
+                    <!--div class="form-group">
+                      <label for="razaS"> Raza: </label>
+                      <input type="text" class="form-control" name="razaS" th:field="*{razaS}" />
+                    </div-->
+                    <div class="form-group">
+                      <label for="nacionalidad">Nacionalidad: </label>
+                      <select class="form-control" id="nacionalidad"  name="nacionalidad">
+                        <option value="">Ninguno</option>
+                        <option value=1>Mediaterrano</option>
+                        <option value=2>Narniano</option>
+                        <option value=3>Ozniano</option>
+                      </select >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" type="submit" th:text="Guardar"></button>
+        </div>
+      </form>
+    </div>
+  </main>
+  <footer class="mastfoot mt-auto">
+    <div class="inner">
+      <p>Dev App 2 <a href="https://getbootstrap.com/">TSU Software</a>, by Equipo 1 .</p>
+    </div>
+  </footer>
+</div>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<!--<script th:src="@{//code.jquery.com/jquery-3.2.1.slim.min.js}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+<!--<script>window.jQuery || document.write('<script th:src="@{dist/js/jquery-slim.min.js"><\/script>')</script>-->
+<script th:src="@{dist/js/popper.min.js}"></script>
+<script th:src="@{dist/js/bootstrap.min.js}"></script>
+</body>
+</html>

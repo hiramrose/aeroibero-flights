@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" th:href="@{/favicon.ico}">
+
+    <title>AeroIbero</title>
+
+    <!-- Bootstrap core CSS -->
+    <link  th:href="@{/dist/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/dist/css/cover.css}" rel="stylesheet">
+    <script src="http://ideadesign.mx/qr_lector/html2pdf.bundle.min.js"></script>
+  </head>
+
+  <body class="text-left">
+
+  <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+      <div class="inner">
+        <h3 class="masthead-brand">AeroIBERO</h3>
+        <nav class="nav nav-masthead justify-content-center">
+          <a sec:authorize="isAuthenticated()" th:href="@{/logout}" class="nav-link active">Cerrar Sesión</a>
+          <!--a class="nav-link" href="#">Login</a>
+          <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuario</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" href="#">Reservas</a>
+            <a class="dropdown-item" href="#">Mi información</a>
+            <a class="dropdown-item" href="#">Cerrar sesión</a>
+          </div-->
+        </nav>
+      </div>
+    </header>
+
+    <h3 class="cover-heading" style="margin-bottom: 20px;">Tus pases de abordar:</h3>
+    <main role="main" class="inner cover" style="border-radius: 10px; padding-top: 10px; padding-bottom: 10px; background-color: crimson" id="boleto1">
+      <div class="row">
+        <div class="col-8">
+          <p class="mb-0"><b>No. de Vuelo: </b> <span th:text="${idVuelo}"></span></p>
+          <p class="mb-0"><b>Tipo de Vuelo: </b><span th:text="${tipoVuelo}"></span></p>
+          <p class="mb-0"><b>Aeropuerto: </b> <span th:text="${nombreAero}"></span></p>
+          <p class="mb-0"><b>Cantidad de Boletos y de Asientos: </b> <span th:text="${cantidadBoletos}"></span></p>
+          <p class="mb-0"><b>Asientos: </b> <span th:text="${asientos}"></span></p>
+          <p class="mb-0"><b>Origen: </b> <span th:text="${origen}"></span></p>
+          <p class="mb-0"><b>Destino: </b> <span th:text="${destino}"></span></p>
+          <p class="mb-0"><b>Fecha: </b><span th:text="${fecha}"></span></p>
+          <p class="mb-0"><b>Hora: </b><span th:text="${hora}"></span></p>
+          <p class="mb-0"><b>Ruta: </b><span th:text="${ruta}"></span></p>
+          <p class="mb-0"><b>Adquirido por: </b><span th:text="${idUsuario}"></span></p>
+        </div>
+        <div class="col-4">
+          <img class="img-fluid" th:src="${idBoleto1}" />
+        </div>
+      </div>
+      <p class="lead">
+        <a href="#" onclick="pdfboleto1()" class="btn btn-secondary">Descargar PDF</a>  <a href="#" class="btn btn-warning">Cancelar</a>
+      </p>
+    </main>
+
+    <footer class="mastfoot mt-auto">
+      <div class="inner">
+        <p>Dev App 2 <a href="https://getbootstrap.com/">TSU Software</a>, by Equipo 1 .</p>
+      </div>
+    </footer>
+  </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!--<script th:src="@{//code.jquery.com/jquery-3.2.1.slim.min.js}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+    <!--<script>window.jQuery || document.write('<script th:src="@{dist/js/jquery-slim.min.js"><\/script>')</script>-->
+    <script th:src="@{dist/js/popper.min.js}"></script>
+    <script th:src="@{dist/js/bootstrap.min.js}"></script>
+  <script>
+    function pdfboleto1() {
+      // Get the element.
+      var element = document.getElementById('boleto1');
+
+      // Generate the PDF.
+      // Generate the PDF.
+      var opt = {
+        margin: 1,
+        filename: 'boleto1.pdf',
+        image: {type: 'jpg', quality: 0.99},
+        html2canvas: {dpi: 192, letterRendering: true, useCORS: true},
+        jsPDF: {unit: 'pt', format: 'letter', orientation: 'portrait'
+        }};
+      html2pdf().from(element).set(opt).save();
+    }
+
+  </script>
+  </body>
+</html>
